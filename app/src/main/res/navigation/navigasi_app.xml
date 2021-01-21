@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigasi_app"
+    app:startDestination="@id/fragment_list">
+
+    <fragment
+        android:id="@+id/fragment_list"
+        android:name="com.example.belajarsqlite.fragments.list.ListFragment"
+        android:label="List Jadwal"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_fragment_list_to_fragment_tambah"
+            app:destination="@id/fragment_tambah" />
+        <action
+            android:id="@+id/action_fragment_list_to_fragment_update"
+            app:destination="@id/fragment_update" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_tambah"
+        android:name="com.example.belajarsqlite.fragments.tambah.TambahFragment"
+        android:label="Tambah Jadwal"
+        tools:layout="@layout/fragment_tambah" >
+        <action
+            android:id="@+id/action_fragment_tambah_to_fragment_list"
+            app:destination="@id/fragment_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_update"
+        android:name="com.example.belajarsqlite.fragments.update.UpdateFragment"
+        android:label="Update Jadwal">
+        <action
+            android:id="@+id/action_fragment_update_to_fragment_list"
+            app:destination="@id/fragment_list" />
+        <argument
+            android:name="curJadwal"
+            app:argType="com.example.belajarsqlite.model.Jadwal"/>
+    </fragment>
+</navigation>
